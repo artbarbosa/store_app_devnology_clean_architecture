@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:store_app_devnology/app/_design_system/colors/app_colors_const.dart';
-import 'package:store_app_devnology/app/_design_system/text_styles/text_styles_const.dart';
 
-class CustomPrimaryButton extends StatelessWidget {
+import '../../colors/app_colors_const.dart';
+import '../../text_styles/text_styles_const.dart';
+
+class CustomPrimaryButtonWidget extends StatelessWidget {
   final String titleButton;
   final dynamic onPressed;
-  const CustomPrimaryButton({
+  const CustomPrimaryButtonWidget({
     Key? key,
     required this.titleButton,
     required this.onPressed,
@@ -22,7 +23,7 @@ class CustomPrimaryButton extends StatelessWidget {
           height: 40,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: ColorsConst.primary,
+            color: ColorsConst.onPrimary,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -30,10 +31,10 @@ class CustomPrimaryButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(titleButton,
-                    style: TextStylesConst.buttonPrimaryProductDetail),
+                    style: TextStylesConst.buttonWhiteProductDetail),
                 const Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  color: ColorsConst.onPrimary,
+                  Icons.expand_less_outlined,
+                  color: ColorsConst.primary,
                 )
               ],
             ),
