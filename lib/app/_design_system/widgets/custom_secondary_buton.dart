@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:store_app_devnology/app/_design_system/colors/app_colors_const.dart';
 import 'package:store_app_devnology/app/_design_system/text_styles/text_styles_const.dart';
 
-class MyButtonWidget extends StatelessWidget {
+class CustomPrimaryButton extends StatelessWidget {
   final String titleButton;
   final dynamic onPressed;
-  const MyButtonWidget({
+  const CustomPrimaryButton({
     Key? key,
     required this.titleButton,
     required this.onPressed,
@@ -22,7 +22,7 @@ class MyButtonWidget extends StatelessWidget {
           height: 40,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: ColorsConst.primary,
+            color: ColorsConst.onPrimary,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -30,8 +30,11 @@ class MyButtonWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(titleButton,
-                    style: TextStylesConst.buttonPrimaryProductDetail),
-               Icon(Icons.ios)
+                    style: TextStylesConst.buttonWhiteProductDetail),
+                const Icon(
+                  Icons.expand_less_outlined,
+                  color: ColorsConst.primary,
+                )
               ],
             ),
           ),
