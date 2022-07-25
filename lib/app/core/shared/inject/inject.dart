@@ -1,8 +1,10 @@
 import 'package:get_it/get_it.dart';
 
+import '../ui/controllers/custom_bottom_navigation_bar_controller.dart';
+
 class Inject {
   static initialize() {
-    GetIt getIt = GetIt.I;
+    final getIt = GetIt.I;
 
     // getIt.registerLazySingleton<GraphQLClient>(
     //   () => GraphQLClient(
@@ -30,8 +32,8 @@ class Inject {
     //   () => HomeController(getIt()),
     // );
 
-    // getIt.registerLazySingleton<CustomBottomNavigationBarController>(
-    //   () => CustomBottomNavigationBarController(0),
-    // );
+    getIt.registerLazySingleton<CustomBottomNavigationBarController>(
+      () => CustomBottomNavigationBarController(0),
+    );
   }
 }
