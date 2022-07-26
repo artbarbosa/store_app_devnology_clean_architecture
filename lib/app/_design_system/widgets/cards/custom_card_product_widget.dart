@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app_devnology/app/modules/home/submodules/details/presentation/routers/detail_arguments.dart';
 
 import '../../../core/product/infra/model/product_model.dart';
 import '../../text_styles/text_styles_const.dart';
@@ -14,7 +15,10 @@ class CustomCardProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed('/detail', arguments: DetailArguments(product: product));
+      },
       child: Container(
         width: 101,
         height: 135,

@@ -1,4 +1,6 @@
+import '../../../../../../core/product/infra/model/product_model.dart';
+
 class DetailArguments {
-  DetailArguments({required this.id});
-  String id;
+  DetailArguments({required this.product});
+  ProductModel product;
 }
