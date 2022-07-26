@@ -1,10 +1,9 @@
-import 'package:store_app_devnology/app/core/product/domain/entities/product_entity.dart';
-import 'package:store_app_devnology/app/core/product/domain/errors/product_errors.dart';
-import 'package:store_app_devnology/app/core/product/infra/adapters/jsont_to_product.dart';
-import 'package:store_app_devnology/app/core/product/infra/datasources/product_datasource_interface.dart';
-
 import '../../../shared/failures/failures.dart';
+import '../../domain/entities/product_entity.dart';
+import '../../domain/errors/product_errors.dart';
 import '../../domain/repositories/product_repository_interface.dart';
+import '../adapters/jsont_to_product.dart';
+import '../datasources/product_datasource_interface.dart';
 
 class ProductRepository implements IProductRepository {
   final IProductDataSource datasource;
