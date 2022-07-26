@@ -6,6 +6,7 @@ import 'package:store_app_devnology/app/_design_system/widgets/buttons/custom_pr
 import '../../../../../../../_design_system/text_styles/text_styles_const.dart';
 import '../../../../../../../_design_system/widgets/buttons/custom_secondary_buton_widget.dart';
 import '../../../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
+import '../../../../../../../core/shared/utils/format_double_decimals_with_cents.dart';
 import '../../routers/detail_arguments.dart';
 import '../controllers/detail_controller.dart';
 
@@ -86,7 +87,7 @@ class _DetailContainerState extends State<DetailContainer> {
               style: TextStylesConst.nameProductDetail,
             ),
             Text(
-              '\$ ${widget.arguments.product.price.toStringAsFixed(2)}',
+              '\$ ${FormatDoubleDecimalWithCents.call(widget.arguments.product.price, '.', ',')}',
               style: TextStylesConst.priceProductDetail,
             ),
             const SizedBox(height: 16),

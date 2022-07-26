@@ -20,6 +20,7 @@ class CartContainerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +37,9 @@ class CartContainerPage extends StatelessWidget {
               ],
             ),
           ),
-          ValueListenableBuilder(
+          SizedBox(
+            height: currentSize.height - 209,
+            child: ValueListenableBuilder(
               valueListenable: controller.listProduct,
               builder: (_, __, ___) {
                 return ListView.builder(
@@ -50,7 +53,9 @@ class CartContainerPage extends StatelessWidget {
                     );
                   },
                 );
-              }),
+              },
+            ),
+          ),
           const Spacer(),
           BottomAppBar(
             child: Container(

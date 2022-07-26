@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store_app_devnology/app/modules/home/submodules/details/presentation/routers/detail_arguments.dart';
 
 import '../../../core/product/infra/model/product_model.dart';
+import '../../../core/shared/utils/format_double_decimals_with_cents.dart';
 import '../../text_styles/text_styles_const.dart';
 
 class CustomCardProductWidget extends StatelessWidget {
@@ -54,7 +55,7 @@ class CustomCardProductWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0, bottom: 10, right: 8.0),
               child: Text(
-                product.price.toStringAsFixed(2),
+                '\$ ${FormatDoubleDecimalWithCents.call(product.price, '.', ',')}',
                 style: TextStylesConst.priceProductCard,
               ),
             ),
