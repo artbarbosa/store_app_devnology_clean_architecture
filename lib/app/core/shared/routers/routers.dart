@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app_devnology/app/modules/home/submodules/details/presentation/routers/detail_router.dart';
 
 import '../ui/containers/app_container.dart';
 
@@ -6,8 +7,8 @@ class Routers {
   static String get initialRoute => '/';
 
   static Map<String, Widget Function(BuildContext, dynamic)> routes = {
-    '/': (_, __) => const AppContainer(),
-    '/splash': (_, __) => Container(),
+    '/': (context, arguments) => const AppContainer(),
+    '/detail': (context, arguments) => DetailRouter(arguments: arguments),
   };
 
   static Route? generateRoutes(RouteSettings settings) {

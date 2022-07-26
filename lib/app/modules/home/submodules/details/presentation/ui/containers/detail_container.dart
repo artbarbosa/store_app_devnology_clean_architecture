@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app_devnology/app/_design_system/colors/app_colors_const.dart';
 
 import '../../../../../../../_design_system/text_styles/text_styles_const.dart';
 import '../../routers/detail_arguments.dart';
@@ -28,13 +29,14 @@ class _DetailContainerState extends State<DetailContainer> {
           width: 10,
           height: 10,
           decoration: BoxDecoration(
-              color: currentIndex == index ? Colors.black : Colors.black26,
+              color: currentIndex == index
+                  ? ColorsConst.primary
+                  : const Color(0xFFC4C4C4),
               shape: BoxShape.circle),
         );
       });
     }
 
-    final currentSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(right: 25, left: 25, top: 20),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../../../_design_system/widgets/bottom_navigation_bart/custom_bottom_navigation_bar_widget.dart';
+import '../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import '../controllers/home_controllers.dart';
 import '../pages/home_page.dart';
 import '../states/product_states.dart';
@@ -15,6 +17,9 @@ class HomeContainerPage extends StatefulWidget {
 class _HomeContainerPageState extends State<HomeContainerPage> {
   final controller = GetIt.I.get<HomeController>();
 
+  final controllerBottomNavigation =
+      GetIt.I.get<CustomBottomNavigationBarController>();
+
   @override
   void initState() {
     super.initState();
@@ -23,19 +28,30 @@ class _HomeContainerPageState extends State<HomeContainerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: controller,
-      builder: (context, value, child) {
-        if (value is ProductLoadedState) {
-          return HomePage(
-            listProducts: value.listProducts,
-          );
-        }
-        if (value is ProductErrorState) {
+    return Scaffold(
+      body: ValueListenableBuilder(
+        valueListenable: controller,
+        builder: (context, value, child) {
+          if (value is ProductLoadedState) {
+            return HomePage(
+              listProducts: value.listProducts,
+            );
+          }
+          if (value is ProductErrorState) {
+            return Container();
+          }
           return Container();
-        }
-        return Container();
-      },
+        },
+      ),
+      bottomNavigationBar: ValueListenableBuilder<int>(
+        valueListenable: controllerBottomNavigation,
+        builder: (context, value, _) {
+          return CustomBottomNavigationBar(
+            currentIndex: value,
+            onTap: (value) => controllerBottomNavigation.changePage(value),
+          );
+        },
+      ),
     );
   }
 }
