@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../colors/app_colors_const.dart';
 import '../../text_styles/text_styles_const.dart';
 
-class CustomPrimaryButtonWidget extends StatelessWidget {
+class CustomSecondaryButtonWidget extends StatelessWidget {
   final String titleButton;
   final dynamic onPressed;
-  const CustomPrimaryButtonWidget({
+  const CustomSecondaryButtonWidget({
     Key? key,
     required this.titleButton,
     required this.onPressed,

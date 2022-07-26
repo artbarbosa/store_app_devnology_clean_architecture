@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:store_app_devnology/app/_design_system/colors/app_colors_const.dart';
+import 'package:store_app_devnology/app/_design_system/widgets/buttons/custom_primary_button_widget.dart';
 
 import '../../../../../../../_design_system/text_styles/text_styles_const.dart';
+import '../../../../../../../_design_system/widgets/buttons/custom_secondary_buton_widget.dart';
+import '../../../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import '../../routers/detail_arguments.dart';
-import '../controlollers/detail_controller.dart';
+import '../controllers/detail_controller.dart';
 
 class DetailContainer extends StatefulWidget {
   const DetailContainer({
@@ -19,6 +23,8 @@ class DetailContainer extends StatefulWidget {
 
 class _DetailContainerState extends State<DetailContainer> {
   final DetailController controller = DetailController();
+  final controllerBottomNavigation =
+      GetIt.I.get<CustomBottomNavigationBarController>();
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +100,31 @@ class _DetailContainerState extends State<DetailContainer> {
               style: TextStylesConst.descriptionProductDetail,
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 86,
+          color: ColorsConst.secondary,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 23),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomSecondaryButtonWidget(
+                  onPressed: () {},
+                  titleButton: 'SHARE THIS',
+                ),
+                CustomPrimaryButtonWidget(
+                  onPressed: () {
+                    controllerBottomNavigation.changePage(2);
+                    Navigator.of(context).pop();
+                  },
+                  titleButton: 'ADD TO CART',
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

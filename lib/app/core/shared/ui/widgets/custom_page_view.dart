@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../../_design_system/widgets/bottom_navigation_bart/custom_bottom_navigation_bar_widget.dart';
+import '../../../../modules/cart/presentation/router/cart_router.dart';
 import '../../../../modules/home/presentation/routers/home_router.dart';
 import '../controllers/custom_bottom_navigation_bar_controller.dart';
 
@@ -42,20 +43,7 @@ class _CustomPageViewState extends State<CustomPageView> {
             },
           ),
         ),
-        Scaffold(
-          body: const Center(
-            child: Text('Cart'),
-          ),
-          bottomNavigationBar: ValueListenableBuilder<int>(
-            valueListenable: controller,
-            builder: (context, value, _) {
-              return CustomBottomNavigationBar(
-                currentIndex: value,
-                onTap: (value) => controller.changePage(value),
-              );
-            },
-          ),
-        ),
+        const CartRouter(),
         Scaffold(
           body: const Center(
             child: Text('Profile'),
