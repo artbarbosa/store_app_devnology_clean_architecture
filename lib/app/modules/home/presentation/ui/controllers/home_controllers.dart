@@ -4,10 +4,10 @@ import '../../../../../core/product/domain/usecases/get_all_products_usecase.dar
 import '../../../../../core/product/infra/model/product_model.dart';
 import '../states/product_states.dart';
 
-class ProductController extends ValueNotifier<ProductState> {
+class HomeController extends ValueNotifier<ProductState> {
   final IGetAllProductsUseCase _getAllProductsUseCase;
 
-  ProductController(
+  HomeController(
     this._getAllProductsUseCase,
   ) : super(ProductLoadingState());
 
