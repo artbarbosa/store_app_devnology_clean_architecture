@@ -1,3 +1,3 @@
 abstract class IProductDataSource {
-  Future<List<Map>> getAllProducts();
+  Future<List<Map>> getAllProducts(String path);
 }

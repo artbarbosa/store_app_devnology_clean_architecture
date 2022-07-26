@@ -3,5 +3,5 @@ class ProductEntity {
   final String title;
   final double price;
 
-  ProductEntity(this.uid, this.title, this.price);
+  ProductEntity({required this.uid, required this.title, required this.price});
 }

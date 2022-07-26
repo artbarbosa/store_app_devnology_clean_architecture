@@ -5,13 +5,16 @@ class ProductModel extends ProductEntity {
   final String shortTitle;
   final String description;
 
-  ProductModel(
-    this.shortTitle,
-    this.description, {
-    required int id,
+  ProductModel({
+    required String uid,
     required String title,
-    required String description,
-    required num price,
+    required double price,
     required this.image,
-  });
+    required this.shortTitle,
+    required this.description,
+  }) : super(
+          uid: uid,
+          price: price,
+          title: title,
+        );
 }
