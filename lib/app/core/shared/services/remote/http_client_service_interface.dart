@@ -1,5 +1,5 @@
 abstract class IHttpService {
-  Future<dynamic> get<T>(
+  Future<dynamic> get(
     String path, {
     Map<String, dynamic>? queryParameters,
   });

@@ -6,13 +6,14 @@ import '../../domain/repositories/product_repository_interface.dart';
 
 class ProductRepository implements IProductRepository {
   final IProductDataSource datasource;
+
   ProductRepository({
     required this.datasource,
   });
 
   @override
   Future<List<ProductEntity>> getAllProducts() async {
-    final list = await datasource.getAllProducts('');
+    final list = await datasource.getAllProducts('AllProducts');
     return list.map((e) => JsonToProduct.fromMap(e)).toList();
   }
 }
