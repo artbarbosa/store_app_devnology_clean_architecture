@@ -35,6 +35,7 @@ class CustomSecondaryButtonWidget extends StatelessWidget {
                 const Icon(
                   Icons.expand_less_outlined,
                   color: ColorsConst.primary,
+                  size: 35,
                 )
               ],
             ),

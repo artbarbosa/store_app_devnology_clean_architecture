@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:store_app_devnology/app/_design_system/text_styles/text_styles_const.dart';
+import 'package:store_app_devnology/app/modules/cart/presentation/ui/controllers/cart_controller.dart';
 
 import '../../../../../_design_system/colors/app_colors_const.dart';
 import '../../../../../_design_system/widgets/bottom_navigation_bart/custom_bottom_navigation_bar_widget.dart';
 import '../../../../../_design_system/widgets/buttons/custom_primary_button_widget.dart';
 import '../../../../../_design_system/widgets/buttons/custom_secondary_buton_widget.dart';
+import '../../../../../_design_system/widgets/cards/custom_card_product_cart_widget.dart';
 import '../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 
 class CartContainerPage extends StatelessWidget {
   CartContainerPage({Key? key}) : super(key: key);
+
+  final controller = GetIt.I.get<CartController>();
 
   final controllerBottomNavigation =
       GetIt.I.get<CustomBottomNavigationBarController>();
@@ -32,6 +36,21 @@ class CartContainerPage extends StatelessWidget {
               ],
             ),
           ),
+          ValueListenableBuilder(
+              valueListenable: controller.listProduct,
+              builder: (_, __, ___) {
+                return ListView.builder(
+                  itemCount: controller.listProduct.value.length,
+                  itemBuilder: (context, index) {
+                    return CardItemCartWidget(
+                      itemImage:
+                          controller.listProduct.value[index].image.first,
+                      itemPrice: controller.listProduct.value[index].price,
+                      itemTitle: controller.listProduct.value[index].title,
+                    );
+                  },
+                );
+              }),
           const Spacer(),
           BottomAppBar(
             child: Container(

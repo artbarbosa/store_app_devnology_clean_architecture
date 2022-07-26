@@ -22,7 +22,7 @@ class DetailContainer extends StatefulWidget {
 }
 
 class _DetailContainerState extends State<DetailContainer> {
-  final DetailController controller = DetailController();
+  final DetailController controller = GetIt.I.get<DetailController>();
   final controllerBottomNavigation =
       GetIt.I.get<CustomBottomNavigationBarController>();
 
@@ -117,6 +117,7 @@ class _DetailContainerState extends State<DetailContainer> {
                 ),
                 CustomPrimaryButtonWidget(
                   onPressed: () {
+                    controller.addProductToCart(widget.arguments.product);
                     controllerBottomNavigation.changePage(2);
                     Navigator.of(context).pop();
                   },

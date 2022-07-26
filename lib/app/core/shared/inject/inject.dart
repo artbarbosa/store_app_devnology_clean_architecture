@@ -1,6 +1,8 @@
 import 'package:get_it/get_it.dart';
 
+import '../../../modules/cart/presentation/ui/controllers/cart_controller.dart';
 import '../../../modules/home/presentation/ui/controllers/home_controllers.dart';
+import '../../../modules/home/submodules/details/presentation/ui/controllers/detail_controller.dart';
 import '../../product/domain/repositories/product_repository_interface.dart';
 import '../../product/domain/usecases/get_all_products_usecase.dart';
 import '../../product/external/datasources/product_datasource.dart';
@@ -28,6 +30,16 @@ class Inject {
 
     getIt.registerFactory<HomeController>(
       () => HomeController(getIt()),
+    );
+
+    getIt.registerSingleton<CartController>(
+      CartController(),
+    );
+
+    getIt.registerFactory<DetailController>(
+      () => DetailController(
+        cartController: getIt(),
+      ),
     );
 
     getIt.registerLazySingleton<CustomBottomNavigationBarController>(
