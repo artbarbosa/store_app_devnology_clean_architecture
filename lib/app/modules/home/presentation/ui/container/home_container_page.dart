@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../controllers/home_controllers.dart';
+import '../pages/home_page.dart';
 import '../states/product_states.dart';
 
 class HomeContainerPage extends StatefulWidget {
@@ -26,7 +27,9 @@ class _HomeContainerPageState extends State<HomeContainerPage> {
       valueListenable: controller,
       builder: (context, value, child) {
         if (value is ProductLoadedState) {
-          return Container();
+          return HomePage(
+            listProducts: value.listProducts,
+          );
         }
         if (value is ProductErrorState) {
           return Container();

@@ -22,7 +22,7 @@ class CustomCardCategoryWidget extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(
-              'assets/icons_category/$icon.png',
+              icon,
               height: 65,
               width: 65,
             ),

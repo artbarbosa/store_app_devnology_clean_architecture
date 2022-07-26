@@ -29,7 +29,11 @@ flutter:
   uses-material-design: true
 
   assets:
-   - assets/
+    - assets/items_photos/lenovo/
+    - assets/items_photos/lenovo_idealpad/
+    - assets/items_photos/lenovo_thinkpad/
+    - assets/categories/
+    - assets/banners/
 
   # fonts:
   #   - family: Schyler

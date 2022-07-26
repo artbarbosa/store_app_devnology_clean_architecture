@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../modules/home/presentation/routers/home_router.dart';
+
 class CustomPageView extends StatefulWidget {
   const CustomPageView({
     Key? key,
@@ -19,8 +21,7 @@ class _CustomPageViewState extends State<CustomPageView> {
       physics: const NeverScrollableScrollPhysics(),
       controller: widget.pageController,
       children: const [
-        //HomeRouter(),
-        Center(child: Text('Home')),
+        HomeRouter(),
         Center(child: Text('Search')),
         Center(child: Text('Cart')),
         Center(child: Text('Profile')),

@@ -3,7 +3,7 @@ import '../model/product_model.dart';
 class JsonToProduct {
   static ProductModel fromMap(dynamic json) {
     return ProductModel(
-        uid: json['id'],
+        uid: json['uid'],
         title: json['title'],
         shortTitle: json['short_title'],
         price: json['price'],

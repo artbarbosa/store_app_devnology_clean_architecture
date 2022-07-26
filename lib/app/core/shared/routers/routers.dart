@@ -7,6 +7,7 @@ class Routers {
 
   static Map<String, Widget Function(BuildContext, dynamic)> routes = {
     '/': (_, __) => const AppContainer(),
+    '/splash': (_, __) => Container(),
   };
 
   static Route? generateRoutes(RouteSettings settings) {
