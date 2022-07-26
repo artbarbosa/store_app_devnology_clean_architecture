@@ -45,7 +45,7 @@ class CartContainerPage extends StatelessWidget {
                 return ListView.builder(
                   itemCount: controller.listProduct.value.length,
                   itemBuilder: (context, index) {
-                    return CardItemCartWidget(
+                    return CustomCardProductCartWidget(
                       itemImage:
                           controller.listProduct.value[index].image.first,
                       itemPrice: controller.listProduct.value[index].price,

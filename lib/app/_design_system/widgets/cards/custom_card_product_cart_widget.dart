@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:store_app_devnology/app/core/shared/utils/format_double_decimals_with_cents.dart';
 
 import '../../text_styles/text_styles_const.dart';
 
-class CardItemCartWidget extends StatefulWidget {
+class CustomCardProductCartWidget extends StatefulWidget {
   final String itemTitle;
   final double itemPrice;
   final String itemImage;
-  const CardItemCartWidget({
+  const CustomCardProductCartWidget({
     Key? key,
     required this.itemTitle,
     required this.itemPrice,
@@ -14,10 +15,12 @@ class CardItemCartWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CardItemCartWidget> createState() => _CardItemCartWidgetState();
+  State<CustomCardProductCartWidget> createState() =>
+      _CustomCardProductCartWidgetState();
 }
 
-class _CardItemCartWidgetState extends State<CardItemCartWidget> {
+class _CustomCardProductCartWidgetState
+    extends State<CustomCardProductCartWidget> {
   @override
   Widget build(BuildContext context) {
     var currentSize = MediaQuery.of(context).size;
@@ -48,7 +51,7 @@ class _CardItemCartWidgetState extends State<CardItemCartWidget> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Text(
-                  widget.itemPrice.toStringAsFixed(2),
+                  '\$ ${FormatDoubleDecimalWithCents.call(widget.itemPrice, '.', ',')}',
                   style: TextStylesConst.priceProductCart,
                 ),
               ),
