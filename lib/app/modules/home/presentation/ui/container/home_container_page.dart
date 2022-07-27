@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:store_app_devnology/app/_design_system/widgets/appbar/custom_app_bar_widget.dart';
 
-import '../../../../../_design_system/widgets/bottom_navigation_bart/custom_bottom_navigation_bar_widget.dart';
+import '../../../../../_design_system/widgets/bottom_navigation_bar/custom_bottom_navigation_bar_widget.dart';
 import '../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import '../controllers/home_controllers.dart';
 import '../pages/home_page.dart';

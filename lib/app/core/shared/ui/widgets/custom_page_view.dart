@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../../_design_system/widgets/bottom_navigation_bart/custom_bottom_navigation_bar_widget.dart';
+import '../../../../_design_system/widgets/bottom_navigation_bar/custom_bottom_navigation_bar_widget.dart';
 import '../../../../modules/cart/presentation/router/cart_router.dart';
 import '../../../../modules/home/presentation/routers/home_router.dart';
 import '../controllers/custom_bottom_navigation_bar_controller.dart';
@@ -19,14 +19,14 @@ class CustomPageView extends StatefulWidget {
 }
 
 class _CustomPageViewState extends State<CustomPageView> {
-  final CustomBottomNavigationBarController controller =
-      GetIt.I.get<CustomBottomNavigationBarController>();
-
   @override
   Widget build(BuildContext context) {
+    final CustomBottomNavigationBarController controller =
+        GetIt.I.get<CustomBottomNavigationBarController>();
+    controller.pageController = widget.pageController;
     return PageView(
       physics: const NeverScrollableScrollPhysics(),
-      controller: widget.pageController,
+      controller: controller.pageController,
       children: [
         const HomeRouter(),
         Scaffold(

@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class CustomBottomNavigationBarController extends ValueNotifier<int> {
   CustomBottomNavigationBarController(super.value);
 
-  final PageController _pageController = PageController();
+  PageController? pageController;
 
   int get selectedIndex => value;
 
-  PageController get pageController => _pageController;
-
   void changePage(int index) {
-    _pageController.jumpToPage(index);
+    pageController!.jumpToPage(index);
     value = index;
   }
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:store_app_devnology/app/modules/home/submodules/details/presentation/routers/detail_router.dart';
 
+import '../../../modules/splash/presentation/routers/splash_router.dart';
 import '../ui/containers/app_container.dart';
 
 class Routers {
-  static String get initialRoute => '/';
+  static String get initialRoute => '/splash';
 
   static Map<String, Widget Function(BuildContext, dynamic)> routes = {
-    '/': (context, arguments) => const AppContainer(),
-    '/detail': (context, arguments) => DetailRouter(arguments: arguments),
+    '/splash': (context, arguments) => const SplashRouter(),
+    '/': (context, arguments) => AppContainer(pageController: arguments),
   };
 
   static Route? generateRoutes(RouteSettings settings) {

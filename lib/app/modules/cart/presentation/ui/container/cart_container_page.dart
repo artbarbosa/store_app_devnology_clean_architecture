@@ -6,7 +6,7 @@ import 'package:store_app_devnology/app/modules/cart/presentation/ui/controllers
 
 import '../../../../../_design_system/colors/app_colors_const.dart';
 import '../../../../../_design_system/widgets/appbar/custom_app_bar_widget.dart';
-import '../../../../../_design_system/widgets/bottom_navigation_bart/custom_bottom_navigation_bar_widget.dart';
+import '../../../../../_design_system/widgets/bottom_navigation_bar/custom_bottom_navigation_bar_widget.dart';
 import '../../../../../_design_system/widgets/buttons/custom_primary_button_widget.dart';
 import '../../../../../_design_system/widgets/cards/custom_card_product_cart_widget.dart';
 import '../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';

@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
-import '../controllers/custom_bottom_navigation_bar_controller.dart';
 import '../widgets/custom_page_view.dart';
 
 class AppContainer extends StatefulWidget {
-  const AppContainer({Key? key}) : super(key: key);
-
+  const AppContainer({Key? key, required this.pageController})
+      : super(key: key);
+  final PageController pageController;
   @override
   State<AppContainer> createState() => _AppContainerState();
 }
 
 class _AppContainerState extends State<AppContainer> {
-  final CustomBottomNavigationBarController controller =
-      GetIt.I.get<CustomBottomNavigationBarController>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomPageView(
-        pageController: controller.pageController,
+        pageController: widget.pageController,
       ),
     );
   }
