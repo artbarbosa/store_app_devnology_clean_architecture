@@ -14,15 +14,15 @@ class DetailController {
 
   void addProductToCart(ProductModel product) {
     bool hasAdded = false;
-    for (var i = 0; i < cartController.listProduct.value.length; i++) {
-      if (cartController.listProduct.value[i].uid == product.uid) {
+    for (var i = 0; i < cartController.listProduct.length; i++) {
+      if (cartController.listProduct[i].uid == product.uid) {
         hasAdded = true;
-        cartController.listCountProduct.value[i] += 1;
+        cartController.listCountProduct[i] += 1;
       }
     }
     if (hasAdded == false) {
-      cartController.listProduct.value.add(product);
-      cartController.listCountProduct.value.add(1);
+      cartController.listProduct.add(product);
+      cartController.listCountProduct.add(1);
     }
     cartController.calculatedTotal();
   }

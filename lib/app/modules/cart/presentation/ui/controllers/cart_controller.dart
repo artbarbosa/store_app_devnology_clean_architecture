@@ -2,29 +2,28 @@ import 'package:flutter/foundation.dart';
 
 import '../../../../../core/product/infra/model/product_model.dart';
 
-class CartController {
-  var listProduct = ValueNotifier<List<ProductModel>>([]);
-  var listCountProduct = ValueNotifier<List<int>>([]);
-  var totalValue = ValueNotifier<double>(0);
+class CartController extends ChangeNotifier {
+  List<ProductModel> listProduct = [];
+  List<int> listCountProduct = [];
+  double totalValue = 0;
 
-  calculatedTotal() {
-    totalValue.value = 0;
-    for (var i = 0; i < listProduct.value.length; i++) {
-      totalValue.value +=
-          (listProduct.value[i].price * listCountProduct.value[i]);
+  void calculatedTotal() {
+    totalValue = 0;
+    for (var i = 0; i < listProduct.length; i++) {
+      totalValue += (listProduct[i].price * listCountProduct[i]);
     }
-    totalValue.notifyListeners();
+    notifyListeners();
   }
 
-  decrementCount(int index) {
-    listCountProduct.value[index] -= 1;
+  void decrementCount(int index) {
+    listCountProduct[index] -= 1;
     calculatedTotal();
-    listCountProduct.notifyListeners();
+    notifyListeners();
   }
 
-  incrementCount(int index) {
-    listCountProduct.value[index] += 1;
+  void incrementCount(int index) {
+    listCountProduct[index] += 1;
     calculatedTotal();
-    listCountProduct.notifyListeners();
+    notifyListeners();
   }
 }

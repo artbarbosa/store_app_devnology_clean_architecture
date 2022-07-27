@@ -61,9 +61,9 @@ class _CustomCardProductCartWidgetState
                   style: TextStylesConst.priceProductCart,
                 ),
               ),
-              ValueListenableBuilder(
-                  valueListenable: controller.listCountProduct,
-                  builder: (context, _, __) {
+              AnimatedBuilder(
+                  animation: controller,
+                  builder: (context, _) {
                     return Row(
                       children: [
                         IconButton(
@@ -73,8 +73,7 @@ class _CustomCardProductCartWidgetState
                           },
                         ),
                         Text(
-                          controller.listCountProduct.value[widget.index]
-                              .toString(),
+                          controller.listCountProduct[widget.index].toString(),
                           style: TextStylesConst.priceProductCart,
                         ),
                         IconButton(

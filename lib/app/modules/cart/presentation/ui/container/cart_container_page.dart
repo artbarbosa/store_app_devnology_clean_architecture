@@ -50,17 +50,16 @@ class CartContainerPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: SizedBox(
               height: currentSize.height - 270,
-              child: ValueListenableBuilder(
-                valueListenable: controller.listProduct,
-                builder: (_, __, ___) {
+              child: AnimatedBuilder(
+                animation: controller,
+                builder: (_, __) {
                   return ListView.builder(
-                    itemCount: controller.listProduct.value.length,
+                    itemCount: controller.listProduct.length,
                     itemBuilder: (context, index) {
                       return CustomCardProductCartWidget(
-                        itemImage:
-                            controller.listProduct.value[index].image.first,
-                        itemPrice: controller.listProduct.value[index].price,
-                        itemTitle: controller.listProduct.value[index].title,
+                        itemImage: controller.listProduct[index].image.first,
+                        itemPrice: controller.listProduct[index].price,
+                        itemTitle: controller.listProduct[index].title,
                         index: index,
                       );
                     },
@@ -87,11 +86,11 @@ class CartContainerPage extends StatelessWidget {
                           'Total:',
                           style: TextStylesConst.totalTitleCart,
                         ),
-                        ValueListenableBuilder(
-                            valueListenable: controller.totalValue,
-                            builder: (context, _, __) {
+                        AnimatedBuilder(
+                            animation: controller,
+                            builder: (context, _) {
                               return Text(
-                                '\$ ${FormatDoubleDecimalWithCents.call(controller.totalValue.value, '.', ',')}',
+                                '\$ ${FormatDoubleDecimalWithCents.call(controller.totalValue, '.', ',')}',
                                 style: TextStylesConst.totalPriceCart,
                               );
                             })
