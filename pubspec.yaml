@@ -15,6 +15,7 @@ dependencies:
 
   google_fonts: ^3.0.1
   get_it: ^7.2.0
+  flutter_svg: ^1.1.1+1
 
   cupertino_icons: ^1.0.2
 
@@ -34,6 +35,10 @@ flutter:
     - assets/items_photos/lenovo_thinkpad/
     - assets/categories/
     - assets/banners/
+    - assets/logo/
+    - assets/icons/
+
+
 
   # fonts:
   #   - family: Schyler

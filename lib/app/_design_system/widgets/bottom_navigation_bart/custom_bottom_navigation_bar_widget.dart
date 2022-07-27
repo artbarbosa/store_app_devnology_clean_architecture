@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/shared/ui/widgets/custom_badge_widget.dart';
 import '../../colors/app_colors_const.dart';
+import '../../text_styles/text_styles_const.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({
@@ -20,33 +23,59 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      selectedLabelStyle: TextStylesConst.bottomNavigationBarText,
       type: BottomNavigationBarType.fixed,
       backgroundColor: ColorsConst.primary,
       selectedItemColor: ColorsConst.yellow,
       unselectedItemColor: ColorsConst.onPrimary,
       currentIndex: widget.currentIndex,
       onTap: widget.onTap,
-      items: const [
+      items: [
         BottomNavigationBarItem(
           label: 'Home',
-          icon: Icon(Icons.home),
+          icon: SvgPicture.asset(
+            'assets/icons/home_icon_bottom.svg',
+            color: widget.currentIndex == 0 ? ColorsConst.yellow : Colors.white,
+          ),
         ),
         BottomNavigationBarItem(
           label: 'Search',
-          icon: Icon(Icons.add_circle),
+          icon: SvgPicture.asset(
+            'assets/icons/search_icon_bottom.svg',
+            color: widget.currentIndex == 1 ? ColorsConst.yellow : Colors.white,
+          ),
         ),
         BottomNavigationBarItem(
-          label: 'Cart',
-          icon: Icon(Icons.search),
-        ),
+            label: 'Cart',
+            icon: Stack(
+              alignment: Alignment.center,
+              children: [
+                SvgPicture.asset(
+                  'assets/icons/cart_icon_bottom.svg',
+                  color: widget.currentIndex == 2
+                      ? ColorsConst.yellow
+                      : Colors.white,
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 9, left: 30),
+                  child: CustomBadgeWidget(),
+                )
+              ],
+            )),
         BottomNavigationBarItem(
           label: 'Profile',
-          icon: Icon(Icons.favorite),
+          icon: SvgPicture.asset(
+            'assets/icons/profile_icon_bottom.svg',
+            color: widget.currentIndex == 3 ? ColorsConst.yellow : Colors.white,
+          ),
         ),
         BottomNavigationBarItem(
           label: 'More',
-          icon: Icon(Icons.favorite),
-        )
+          icon: SvgPicture.asset(
+            'assets/icons/more_icon_bottom.svg',
+            color: widget.currentIndex == 4 ? ColorsConst.yellow : Colors.white,
+          ),
+        ),
       ],
     );
   }

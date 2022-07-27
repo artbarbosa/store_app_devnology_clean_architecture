@@ -12,6 +12,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       initialRoute: Routers.initialRoute,
       onGenerateRoute: Routers.generateRoutes,
     );

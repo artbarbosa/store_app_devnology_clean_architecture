@@ -84,4 +84,15 @@ class TextStylesConst {
     fontWeight: FontWeight.w700,
     color: Colors.white,
   );
+
+  static final bottomNavigationBarText = GoogleFonts.roboto(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final badgeText = GoogleFonts.roboto(
+    fontSize: 9,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
 }
