@@ -1,29 +1,48 @@
 import 'package:flutter/foundation.dart';
+import 'package:store_app_devnology/app/modules/cart/domain/usecases/decrement_count_item_in_cart.dart';
 
 import '../../../../../core/product/infra/model/product_model.dart';
+import '../../../domain/entities/cart_entity.dart';
+import '../../../domain/usecases/caculated_total_cart_usecase.dart';
+import '../../../domain/usecases/incremet_count_item_in_cart_usecase.dart';
+import '../../../domain/usecases/remove_item_in_cart_usecase.dart';
 
 class CartController extends ChangeNotifier {
+  final ICalculatedTotalCartUseCase calculatedTotalCartUseCase;
+  final IIcrementItemInCartUseCase icrementItemInCartUseCase;
+  final IDecrementItemInCartUseCase decrementItemInCartUseCase;
+  final IRemoveItemInCartUseCase removeItemInCartUseCase;
+  CartController({
+    required this.calculatedTotalCartUseCase,
+    required this.icrementItemInCartUseCase,
+    required this.decrementItemInCartUseCase,
+    required this.removeItemInCartUseCase,
+  });
+  var cart = CartEntity(listProduct: []);
   List<ProductModel> listProduct = [];
   List<int> listCountProduct = [];
   double totalValue = 0;
 
   void calculatedTotal() {
-    totalValue = 0;
-    for (var i = 0; i < listProduct.length; i++) {
-      totalValue += (listProduct[i].price * listCountProduct[i]);
-    }
+    totalValue = calculatedTotalCartUseCase.call(cart);
     notifyListeners();
   }
 
   void decrementCount(int index) {
-    listCountProduct[index] -= 1;
-    calculatedTotal();
+    cart = decrementItemInCartUseCase.call(cart, index);
+    removeItem(index);
+    totalValue = calculatedTotalCartUseCase.call(cart);
     notifyListeners();
   }
 
   void incrementCount(int index) {
-    listCountProduct[index] += 1;
-    calculatedTotal();
+    cart = icrementItemInCartUseCase.call(cart, index);
+    totalValue = calculatedTotalCartUseCase.call(cart);
+    notifyListeners();
+  }
+
+  removeItem(int index) {
+    cart = removeItemInCartUseCase.call(cart, index);
     notifyListeners();
   }
 }

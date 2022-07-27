@@ -1,5 +1,10 @@
 import 'package:get_it/get_it.dart';
 
+import '../../../modules/cart/domain/usecases/add_item_in_cart_usecase.dart';
+import '../../../modules/cart/domain/usecases/caculated_total_cart_usecase.dart';
+import '../../../modules/cart/domain/usecases/decrement_count_item_in_cart.dart';
+import '../../../modules/cart/domain/usecases/incremet_count_item_in_cart_usecase.dart';
+import '../../../modules/cart/domain/usecases/remove_item_in_cart_usecase.dart';
 import '../../../modules/cart/presentation/ui/controllers/cart_controller.dart';
 import '../../../modules/home/presentation/ui/controllers/home_controllers.dart';
 import '../../../modules/home/submodules/details/presentation/ui/controllers/detail_controller.dart';
@@ -28,16 +33,41 @@ class Inject {
       () => GetAllProductsUseCase(getIt()),
     );
 
+    getIt.registerFactory<ICalculatedTotalCartUseCase>(
+      () => CalculatedTotalCartUseCase(),
+    );
+
+    getIt.registerFactory<IDecrementItemInCartUseCase>(
+      () => DecrementItemInCartUseCase(),
+    );
+    getIt.registerFactory<IIcrementItemInCartUseCase>(
+      () => IcrementItemInCartUseCase(),
+    );
+
+    getIt.registerFactory<IRemoveItemInCartUseCase>(
+      () => RemoveItemInCartUseCase(),
+    );
+
+    getIt.registerFactory<IAddItemInCartUseCase>(
+      () => AddItemInCartUseCase(),
+    );
+
     getIt.registerFactory<HomeController>(
       () => HomeController(getIt()),
     );
 
     getIt.registerSingleton<CartController>(
-      CartController(),
+      CartController(
+        calculatedTotalCartUseCase: getIt(),
+        decrementItemInCartUseCase: getIt(),
+        icrementItemInCartUseCase: getIt(),
+        removeItemInCartUseCase: getIt(),
+      ),
     );
 
     getIt.registerFactory<DetailController>(
       () => DetailController(
+        addItemInCartUseCase: getIt(),
         cartController: getIt(),
       ),
     );
