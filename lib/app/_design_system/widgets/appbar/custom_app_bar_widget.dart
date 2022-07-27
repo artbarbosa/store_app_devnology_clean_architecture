@@ -27,7 +27,7 @@ class CustomAppBarWidget extends StatelessWidget {
       elevation: 0,
       title: isLeading == false
           ? SizedBox(
-              width: double.infinity,
+              width: MediaQuery.of(context).size.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,9 +55,9 @@ class CustomAppBarWidget extends StatelessWidget {
                 ),
                 onPressed: () {},
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: const CustomBadgeWidget(),
+              const Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: CustomBadgeWidget(),
               )
             ],
           )

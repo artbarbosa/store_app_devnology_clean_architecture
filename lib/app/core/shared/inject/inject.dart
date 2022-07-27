@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../modules/cart/domain/usecases/add_item_in_cart_usecase.dart';
 import '../../../modules/cart/domain/usecases/caculated_total_cart_usecase.dart';
+import '../../../modules/cart/domain/usecases/clean_cart_usecase.dart';
 import '../../../modules/cart/domain/usecases/decrement_count_item_in_cart.dart';
 import '../../../modules/cart/domain/usecases/incremet_count_item_in_cart_usecase.dart';
 import '../../../modules/cart/domain/usecases/remove_item_in_cart_usecase.dart';
@@ -53,6 +54,10 @@ class Inject {
       () => AddItemInCartUseCase(),
     );
 
+    getIt.registerFactory<ICleanCartUseCase>(
+      () => CleanCartUseCase(),
+    );
+
     getIt.registerFactory<HomeController>(
       () => HomeController(getIt()),
     );
@@ -62,6 +67,7 @@ class Inject {
 
     getIt.registerSingleton<CartController>(
       CartController(
+        cleanCartUseCase: getIt(),
         calculatedTotalCartUseCase: getIt(),
         decrementItemInCartUseCase: getIt(),
         icrementItemInCartUseCase: getIt(),

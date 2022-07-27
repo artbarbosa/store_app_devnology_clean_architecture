@@ -57,7 +57,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                       : Colors.white,
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(top: 9, left: 30),
+                  padding: EdgeInsets.only(top: 9, left: 25),
                   child: CustomBadgeWidget(),
                 )
               ],

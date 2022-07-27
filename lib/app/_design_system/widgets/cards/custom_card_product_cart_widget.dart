@@ -73,7 +73,8 @@ class _CustomCardProductCartWidgetState
                           },
                         ),
                         Text(
-                          controller.listCountProduct[widget.index].toString(),
+                          controller.cart.listProduct[widget.index].countProduct
+                              .toString(),
                           style: TextStylesConst.priceProductCart,
                         ),
                         IconButton(

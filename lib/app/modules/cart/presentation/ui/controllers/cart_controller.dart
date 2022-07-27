@@ -4,6 +4,7 @@ import 'package:store_app_devnology/app/modules/cart/domain/usecases/decrement_c
 import '../../../../../core/product/infra/model/product_model.dart';
 import '../../../domain/entities/cart_entity.dart';
 import '../../../domain/usecases/caculated_total_cart_usecase.dart';
+import '../../../domain/usecases/clean_cart_usecase.dart';
 import '../../../domain/usecases/incremet_count_item_in_cart_usecase.dart';
 import '../../../domain/usecases/remove_item_in_cart_usecase.dart';
 
@@ -12,11 +13,13 @@ class CartController extends ChangeNotifier {
   final IIcrementItemInCartUseCase icrementItemInCartUseCase;
   final IDecrementItemInCartUseCase decrementItemInCartUseCase;
   final IRemoveItemInCartUseCase removeItemInCartUseCase;
+  final ICleanCartUseCase cleanCartUseCase;
   CartController({
     required this.calculatedTotalCartUseCase,
     required this.icrementItemInCartUseCase,
     required this.decrementItemInCartUseCase,
     required this.removeItemInCartUseCase,
+    required this.cleanCartUseCase,
   });
   var cart = CartEntity(listProduct: []);
   List<ProductModel> listProduct = [];
@@ -43,6 +46,12 @@ class CartController extends ChangeNotifier {
 
   removeItem(int index) {
     cart = removeItemInCartUseCase.call(cart, index);
+    notifyListeners();
+  }
+
+  void checkoutCart() {
+    cart = cleanCartUseCase.call(cart);
+    totalValue = calculatedTotalCartUseCase.call(cart);
     notifyListeners();
   }
 }

@@ -7,7 +7,7 @@ abstract class IDecrementItemInCartUseCase {
 class DecrementItemInCartUseCase implements IDecrementItemInCartUseCase {
   @override
   CartEntity call(CartEntity cart, int index) {
-    cart.listProduct[index].countProduct += 1;
+    cart.listProduct[index].countProduct -= 1;
     return cart;
   }
 }
