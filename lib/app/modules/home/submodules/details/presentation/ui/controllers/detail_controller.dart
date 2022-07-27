@@ -13,6 +13,17 @@ class DetailController {
   });
 
   void addProductToCart(ProductModel product) {
-    cartController.listProduct.value.add(product);
+    bool hasAdded = false;
+    for (var i = 0; i < cartController.listProduct.value.length; i++) {
+      if (cartController.listProduct.value[i].uid == product.uid) {
+        hasAdded = true;
+        cartController.listCountProduct.value[i] += 1;
+      }
+    }
+    if (hasAdded == false) {
+      cartController.listProduct.value.add(product);
+      cartController.listCountProduct.value.add(1);
+    }
+    cartController.calculatedTotal();
   }
 }

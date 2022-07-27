@@ -4,6 +4,7 @@ import 'package:store_app_devnology/app/_design_system/colors/app_colors_const.d
 import 'package:store_app_devnology/app/_design_system/widgets/buttons/custom_primary_button_widget.dart';
 
 import '../../../../../../../_design_system/text_styles/text_styles_const.dart';
+import '../../../../../../../_design_system/widgets/appbar/custom_app_bar_widget.dart';
 import '../../../../../../../_design_system/widgets/buttons/custom_secondary_buton_widget.dart';
 import '../../../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import '../../../../../../../core/shared/utils/format_double_decimals_with_cents.dart';
@@ -45,6 +46,12 @@ class _DetailContainerState extends State<DetailContainer> {
     }
 
     return Scaffold(
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: CustomAppBarWidget(
+          isActiveCart: true,
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(right: 25, left: 25, top: 20),
         child: Column(

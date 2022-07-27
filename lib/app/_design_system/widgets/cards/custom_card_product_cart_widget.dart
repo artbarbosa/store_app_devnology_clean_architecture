@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:store_app_devnology/app/core/shared/utils/format_double_decimals_with_cents.dart';
 
+import '../../../modules/cart/presentation/ui/controllers/cart_controller.dart';
 import '../../text_styles/text_styles_const.dart';
 
 class CustomCardProductCartWidget extends StatefulWidget {
   final String itemTitle;
   final double itemPrice;
   final String itemImage;
+  final int index;
   const CustomCardProductCartWidget({
     Key? key,
     required this.itemTitle,
     required this.itemPrice,
     required this.itemImage,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -23,6 +27,8 @@ class _CustomCardProductCartWidgetState
     extends State<CustomCardProductCartWidget> {
   @override
   Widget build(BuildContext context) {
+    final controller = GetIt.I.get<CartController>();
+
     var currentSize = MediaQuery.of(context).size;
 
     return Row(
@@ -55,18 +61,31 @@ class _CustomCardProductCartWidgetState
                   style: TextStylesConst.priceProductCart,
                 ),
               ),
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.remove_circle),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.add_circle),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
+              ValueListenableBuilder(
+                  valueListenable: controller.listCountProduct,
+                  builder: (context, _, __) {
+                    return Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.remove_circle),
+                          onPressed: () {
+                            controller.decrementCount(widget.index);
+                          },
+                        ),
+                        Text(
+                          controller.listCountProduct.value[widget.index]
+                              .toString(),
+                          style: TextStylesConst.priceProductCart,
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.add_circle),
+                          onPressed: () {
+                            controller.incrementCount(widget.index);
+                          },
+                        ),
+                      ],
+                    );
+                  }),
             ],
           ),
         ),
