@@ -10,9 +10,11 @@ class CustomAppBarWidget extends StatelessWidget {
     this.isLeading = false,
     this.isActiveCart = false,
     this.isActiveActionsBar = false,
+    this.automaticallyImplyLeading = false,
     this.numberItemsInCart = 0,
   }) : super(key: key);
 
+  final bool automaticallyImplyLeading;
   final bool isLeading;
   final bool isActiveCart;
   final bool isActiveActionsBar;
@@ -21,6 +23,7 @@ class CustomAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: automaticallyImplyLeading,
       elevation: 0,
       title: isLeading == false
           ? SizedBox(

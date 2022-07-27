@@ -50,6 +50,7 @@ class _DetailContainerState extends State<DetailContainer> {
         preferredSize: Size.fromHeight(60),
         child: CustomAppBarWidget(
           isActiveCart: true,
+          automaticallyImplyLeading: true,
         ),
       ),
       body: Padding(

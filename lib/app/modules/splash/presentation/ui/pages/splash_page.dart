@@ -23,7 +23,8 @@ class _SplashPageState extends State<SplashPage> {
       setState(() {});
     });
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.of(context).pushNamed('/', arguments: pageController);
+      Navigator.of(context)
+          .pushReplacementNamed('/', arguments: pageController);
     });
   }
 
