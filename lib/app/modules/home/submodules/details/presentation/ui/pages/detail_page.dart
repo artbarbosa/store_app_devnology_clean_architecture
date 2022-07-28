@@ -27,72 +27,82 @@ class _DetailPageState extends State<DetailPage> {
       GetIt.I.get<CustomBottomNavigationBarController>();
 
   @override
+  void dispose() {
+    controller.pageImagesController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 25, left: 25, top: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.product.title,
-            style: TextStylesConst.nameProductDetail,
-          ),
-          Column(
-            children: [
-              SizedBox(
-                width: 200,
-                height: 200,
-                child: PageView.builder(
-                    itemCount: widget.product.image.length,
-                    pageSnapping: true,
-                    controller: controller.pageController,
-                    onPageChanged: (page) {
-                      setState(() {
-                        controller.activeImage = page;
-                      });
-                    },
-                    itemBuilder: (context, pagePosition) {
+    return GestureDetector(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 25, left: 25, top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.product.title,
+              style: TextStylesConst.nameProductDetail,
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: PageView.builder(
+                      itemCount: widget.product.image.length,
+                      pageSnapping: true,
+                      controller: controller.pageImagesController,
+                      onPageChanged: (page) {
+                        setState(() {
+                          controller.activeImage = page;
+                        });
+                      },
+                      itemBuilder: (context, pagePosition) {
+                        return Container(
+                          margin: const EdgeInsets.all(10),
+                          child:
+                              Image.asset(widget.product.image[pagePosition]),
+                        );
+                      }),
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:
+                        List.generate(widget.product.image.length, (index) {
                       return Container(
-                        margin: const EdgeInsets.all(10),
-                        child: Image.asset(widget.product.image[pagePosition]),
+                        margin: const EdgeInsets.all(3),
+                        width: 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                            color: controller.activeImage == index
+                                ? ColorsConst.primary
+                                : const Color(0xFFC4C4C4),
+                            shape: BoxShape.circle),
                       );
-                    }),
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(widget.product.image.length, (index) {
-                    return Container(
-                      margin: const EdgeInsets.all(3),
-                      width: 10,
-                      height: 10,
-                      decoration: BoxDecoration(
-                          color: controller.activeImage == index
-                              ? ColorsConst.primary
-                              : const Color(0xFFC4C4C4),
-                          shape: BoxShape.circle),
-                    );
-                  }))
-            ],
-          ),
-          Text(
-            'Price:',
-            style: TextStylesConst.nameProductDetail,
-          ),
-          Text(
-            '\$ ${FormatDoubleDecimalWithCents.call(widget.product.price, ',', '.')}',
-            style: TextStylesConst.priceProductDetail,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'About this item:',
-            style: TextStylesConst.nameProductDetail,
-          ),
-          const SizedBox(height: 10),
-          Text(
-            widget.product.description,
-            style: TextStylesConst.descriptionProductDetail,
-          ),
-        ],
+                    }))
+              ],
+            ),
+            Text(
+              'Price:',
+              style: TextStylesConst.nameProductDetail,
+            ),
+            Text(
+              '\$ ${FormatDoubleDecimalWithCents.call(widget.product.price, ',', '.')}',
+              style: TextStylesConst.priceProductDetail,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'About this item:',
+              style: TextStylesConst.nameProductDetail,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              widget.product.description,
+              style: TextStylesConst.descriptionProductDetail,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -9,10 +9,7 @@ import '../controllers/custom_bottom_navigation_bar_controller.dart';
 class CustomPageView extends StatefulWidget {
   const CustomPageView({
     Key? key,
-    required this.pageController,
   }) : super(key: key);
-
-  final PageController pageController;
 
   @override
   State<CustomPageView> createState() => _CustomPageViewState();
@@ -23,7 +20,6 @@ class _CustomPageViewState extends State<CustomPageView> {
   Widget build(BuildContext context) {
     final CustomBottomNavigationBarController controller =
         GetIt.I.get<CustomBottomNavigationBarController>();
-    controller.pageController = widget.pageController;
     return PageView(
       physics: const NeverScrollableScrollPhysics(),
       controller: controller.pageController,

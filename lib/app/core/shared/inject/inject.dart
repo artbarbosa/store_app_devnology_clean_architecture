@@ -89,8 +89,8 @@ class Inject {
       ),
     );
 
-    getIt.registerSingleton<CustomBottomNavigationBarController>(
-      CustomBottomNavigationBarController(0),
+    getIt.registerLazySingleton<CustomBottomNavigationBarController>(
+      () => CustomBottomNavigationBarController(0),
     );
   }
 }

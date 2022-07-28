@@ -9,7 +9,8 @@ class DetailController {
   final CartController cartController;
   final IAddItemInCartUseCase addItemInCartUseCase;
   final CustomBadgeController badgeController;
-  final PageController pageController = PageController();
+  final PageController pageImagesController =
+      PageController(initialPage: 0, keepPage: false);
   int activeImage = 0;
 
   DetailController({

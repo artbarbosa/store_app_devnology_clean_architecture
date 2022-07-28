@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class CustomBottomNavigationBarController extends ValueNotifier<int> {
   CustomBottomNavigationBarController(super.value);
-
   PageController? pageController;
 
   int get selectedIndex => value;

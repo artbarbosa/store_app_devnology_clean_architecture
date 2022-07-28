@@ -8,7 +8,7 @@ class Routers {
 
   static Map<String, Widget Function(BuildContext, dynamic)> routes = {
     '/splash': (context, arguments) => const SplashRouter(),
-    '/': (context, arguments) => AppContainer(pageController: arguments),
+    '/': (context, arguments) => const AppContainer(),
   };
 
   static Route? generateRoutes(RouteSettings settings) {

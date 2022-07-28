@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
+import 'package:store_app_devnology/app/core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 
 import '../../../../../_design_system/colors/app_colors_const.dart';
 import '../controllers/splash_controller.dart';
@@ -14,7 +15,7 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   final controller = GetIt.I.get<SplashController>();
-  final pageController = PageController();
+
   @override
   void initState() {
     super.initState();
@@ -23,14 +24,16 @@ class _SplashPageState extends State<SplashPage> {
       setState(() {});
     });
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.of(context)
-          .pushReplacementNamed('/', arguments: pageController);
+      Navigator.of(context).pushReplacementNamed('/');
     });
   }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size.width;
+    final controllerPage = GetIt.I.get<CustomBottomNavigationBarController>();
+    controllerPage.pageController =
+        PageController(initialPage: 0, keepPage: true);
     return Scaffold(
       backgroundColor: ColorsConst.primary,
       body: Center(

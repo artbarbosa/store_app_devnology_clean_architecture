@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_page_view.dart';
 
 class AppContainer extends StatefulWidget {
-  const AppContainer({Key? key, required this.pageController})
-      : super(key: key);
-  final PageController pageController;
+  const AppContainer({Key? key}) : super(key: key);
+
   @override
   State<AppContainer> createState() => _AppContainerState();
 }
@@ -13,9 +12,12 @@ class AppContainer extends StatefulWidget {
 class _AppContainerState extends State<AppContainer> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomPageView(
-        pageController: widget.pageController,
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: const Scaffold(
+        body: CustomPageView(),
       ),
     );
   }
