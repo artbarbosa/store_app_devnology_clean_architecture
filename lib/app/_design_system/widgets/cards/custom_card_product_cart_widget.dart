@@ -57,7 +57,7 @@ class _CustomCardProductCartWidgetState
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Text(
-                  '\$ ${FormatDoubleDecimalWithCents.call(widget.itemPrice, '.', ',')}',
+                  '\$ ${FormatDoubleDecimalWithCents.call(widget.itemPrice, ',', '.')}',
                   style: TextStylesConst.priceProductCart,
                 ),
               ),

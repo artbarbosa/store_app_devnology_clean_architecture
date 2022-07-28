@@ -106,7 +106,7 @@ class _DetailContainerState extends State<DetailContainer> {
               style: TextStylesConst.nameProductDetail,
             ),
             Text(
-              '\$ ${FormatDoubleDecimalWithCents.call(widget.arguments.product.price, '.', ',')}',
+              '\$ ${FormatDoubleDecimalWithCents.call(widget.arguments.product.price, ',', '.')}',
               style: TextStylesConst.priceProductDetail,
             ),
             const SizedBox(height: 16),

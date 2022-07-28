@@ -55,7 +55,7 @@ class CustomCardProductWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0, bottom: 10, right: 8.0),
               child: Text(
-                '\$ ${FormatDoubleDecimalWithCents.call(product.price, '.', ',')}',
+                '\$ ${FormatDoubleDecimalWithCents.call(product.price, ',', '.')}',
                 style: TextStylesConst.priceProductCard,
               ),
             ),

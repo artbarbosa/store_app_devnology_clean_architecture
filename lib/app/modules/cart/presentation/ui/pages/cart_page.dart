@@ -78,7 +78,7 @@ class CartPage extends StatelessWidget {
                           animation: controller,
                           builder: (context, _) {
                             return Text(
-                              '\$ ${FormatDoubleDecimalWithCents.call(controller.totalValue, '.', ',')}',
+                              '\$ ${FormatDoubleDecimalWithCents.call(controller.totalValue, ',', '.')}',
                               style: TextStylesConst.totalPriceCart,
                             );
                           })
