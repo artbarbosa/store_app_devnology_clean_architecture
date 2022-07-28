@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:store_app_devnology/app/modules/home/submodules/details/presentation/routers/detail_arguments.dart';
 
 import '../../../core/product/infra/model/product_model.dart';
 import '../../../core/shared/utils/format_double_decimals_with_cents.dart';
+import '../../../modules/home/submodules/details/presentation/routers/detail_arguments.dart';
 import '../../text_styles/text_styles_const.dart';
 
 class CustomCardProductWidget extends StatelessWidget {
@@ -15,7 +15,6 @@ class CustomCardProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentSize = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
         Navigator.of(context)
@@ -44,7 +43,7 @@ class CustomCardProductWidget extends StatelessWidget {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(left: 8.0, bottom: 10, right: 8.0),
+                      const EdgeInsets.only(left: 8.0, bottom: 4, right: 8.0),
                   child: Text(
                     '\$ ${FormatDoubleDecimalWithCents.call(product.price, ',', '.')}',
                     style: TextStylesConst.priceProductCard,

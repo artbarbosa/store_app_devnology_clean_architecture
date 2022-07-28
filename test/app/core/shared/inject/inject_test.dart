@@ -17,7 +17,7 @@ import 'package:store_app_devnology/app/modules/cart/domain/usecases/decrement_c
 import 'package:store_app_devnology/app/modules/cart/domain/usecases/incremet_count_item_in_cart_usecase.dart';
 import 'package:store_app_devnology/app/modules/cart/domain/usecases/remove_item_in_cart_usecase.dart';
 import 'package:store_app_devnology/app/modules/cart/presentation/ui/controllers/cart_controller.dart';
-import 'package:store_app_devnology/app/modules/home/presentation/ui/controllers/home_controllers.dart';
+import 'package:store_app_devnology/app/modules/home/presentation/ui/controllers/home_controller.dart';
 import 'package:store_app_devnology/app/modules/home/submodules/details/presentation/ui/controllers/detail_controller.dart';
 import 'package:store_app_devnology/app/modules/splash/presentation/ui/controllers/splash_controller.dart';
 

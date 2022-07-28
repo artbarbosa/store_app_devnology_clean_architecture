@@ -7,7 +7,7 @@ import '../../../modules/cart/domain/usecases/decrement_count_item_in_cart.dart'
 import '../../../modules/cart/domain/usecases/incremet_count_item_in_cart_usecase.dart';
 import '../../../modules/cart/domain/usecases/remove_item_in_cart_usecase.dart';
 import '../../../modules/cart/presentation/ui/controllers/cart_controller.dart';
-import '../../../modules/home/presentation/ui/controllers/home_controllers.dart';
+import '../../../modules/home/presentation/ui/controllers/home_controller.dart';
 import '../../../modules/home/submodules/details/presentation/ui/controllers/detail_controller.dart';
 import '../../../modules/splash/presentation/ui/controllers/splash_controller.dart';
 import '../../product/domain/repositories/product_repository_interface.dart';
