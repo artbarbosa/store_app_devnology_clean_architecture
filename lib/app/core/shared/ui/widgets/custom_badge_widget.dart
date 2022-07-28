@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../../_design_system/colors/app_colors_const.dart';
 import '../../../../_design_system/text_styles/text_styles_const.dart';
@@ -9,7 +10,7 @@ class CustomBadgeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = CustomBadgeController();
+    final controller = GetIt.I.get<CustomBadgeController>();
     return ValueListenableBuilder(
         valueListenable: controller.numberItemsInCart,
         builder: (context, _, __) {

@@ -17,6 +17,7 @@ import '../../product/infra/datasources/product_datasource_interface.dart';
 import '../../product/infra/repositories/product_repository.dart';
 import '../services/remote/http_client_mock.dart';
 import '../services/remote/http_client_service_interface.dart';
+import '../ui/controllers/custom_badge_controller.dart';
 import '../ui/controllers/custom_bottom_navigation_bar_controller.dart';
 
 class Inject {
@@ -54,6 +55,10 @@ class Inject {
       () => AddItemInCartUseCase(),
     );
 
+    getIt.registerLazySingleton<CustomBadgeController>(
+      () => CustomBadgeController(),
+    );
+
     getIt.registerFactory<ICleanCartUseCase>(
       () => CleanCartUseCase(),
     );
@@ -67,6 +72,7 @@ class Inject {
 
     getIt.registerSingleton<CartController>(
       CartController(
+        badgeController: getIt(),
         cleanCartUseCase: getIt(),
         calculatedTotalCartUseCase: getIt(),
         decrementItemInCartUseCase: getIt(),
@@ -77,6 +83,7 @@ class Inject {
 
     getIt.registerFactory<DetailController>(
       () => DetailController(
+        badgeController: getIt(),
         addItemInCartUseCase: getIt(),
         cartController: getIt(),
       ),

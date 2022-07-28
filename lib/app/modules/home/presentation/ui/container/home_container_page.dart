@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:store_app_devnology/app/_design_system/widgets/appbar/custom_app_bar_widget.dart';
 
 import '../../../../../_design_system/widgets/bottom_navigation_bar/custom_bottom_navigation_bar_widget.dart';
+import '../../../../../core/shared/ui/controllers/custom_badge_controller.dart';
 import '../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import '../controllers/home_controllers.dart';
 import '../pages/home_page.dart';
@@ -29,6 +30,8 @@ class _HomeContainerPageState extends State<HomeContainerPage> {
 
   @override
   Widget build(BuildContext context) {
+    final badgeController = GetIt.I.get<CustomBadgeController>();
+
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),

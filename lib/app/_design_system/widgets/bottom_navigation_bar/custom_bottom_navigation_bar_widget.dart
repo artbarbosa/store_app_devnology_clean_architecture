@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../../core/shared/ui/controllers/custom_badge_controller.dart';
 import '../../../core/shared/ui/widgets/custom_badge_widget.dart';
 import '../../colors/app_colors_const.dart';
 import '../../text_styles/text_styles_const.dart';
@@ -22,6 +24,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
+    var badgeController = GetIt.I.get<CustomBadgeController>();
     return BottomNavigationBar(
       selectedLabelStyle: TextStylesConst.bottomNavigationBarText,
       type: BottomNavigationBarType.fixed,
@@ -56,9 +59,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                       ? ColorsConst.yellow
                       : Colors.white,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 9, left: 25),
-                  child: CustomBadgeWidget(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 9, left: 25),
+                  child: ValueListenableBuilder(
+                      valueListenable: badgeController.numberItemsInCart,
+                      builder: (context, _, __) {
+                        return const CustomBadgeWidget();
+                      }),
                 )
               ],
             )),
