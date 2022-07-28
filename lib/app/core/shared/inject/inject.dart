@@ -55,12 +55,12 @@ class Inject {
       () => AddItemInCartUseCase(),
     );
 
-    getIt.registerLazySingleton<CustomBadgeController>(
-      () => CustomBadgeController(),
-    );
-
     getIt.registerFactory<ICleanCartUseCase>(
       () => CleanCartUseCase(),
+    );
+
+    getIt.registerLazySingleton<CustomBadgeController>(
+      () => CustomBadgeController(),
     );
 
     getIt.registerFactory<HomeController>(
@@ -94,13 +94,3 @@ class Inject {
     );
   }
 }
-
-// final asd = HomeController(
-//   GetAllProductsUseCase(
-//     ProductRepository(
-//       datasource: ProductDataSource(
-//         httpClient: HttpClientMock(),
-//       ),
-//     ),
-//   ),
-// );

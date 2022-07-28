@@ -2,8 +2,11 @@ import 'package:mocktail/mocktail.dart';
 import 'package:store_app_devnology/app/core/product/domain/entities/product_entity.dart';
 import 'package:store_app_devnology/app/core/product/domain/repositories/product_repository_interface.dart';
 import 'package:store_app_devnology/app/core/product/infra/datasources/product_datasource_interface.dart';
+import 'package:store_app_devnology/app/core/shared/services/remote/http_client_service_interface.dart';
 
 class IProductRepositoryMock extends Mock implements IProductRepository {}
+
+class HttpServiceMock extends Mock implements IHttpService {}
 
 class IProductDataSourceMock extends Mock implements IProductDataSource {}
 

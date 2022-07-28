@@ -3,11 +3,8 @@ import 'package:mocktail/mocktail.dart';
 import 'package:store_app_devnology/app/core/product/domain/errors/product_errors.dart';
 import 'package:store_app_devnology/app/core/product/external/datasources/product_datasource.dart';
 import 'package:store_app_devnology/app/core/shared/failures/failures.dart';
-import 'package:store_app_devnology/app/core/shared/services/remote/http_client_service_interface.dart';
 
 import '../../../../../mocks/mock.dart';
-
-class HttpServiceMock extends Mock implements IHttpService {}
 
 void main() {
   late HttpServiceMock httpClient;
