@@ -20,13 +20,8 @@ class CustomCardProductWidget extends StatelessWidget {
         Navigator.of(context)
             .pushNamed('/detail', arguments: DetailArguments(product: product));
       },
-      child: Container(
-        width: 101,
-        height: 135,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-        ),
+      child: AspectRatio(
+        aspectRatio: 101 / 135,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,6 +32,7 @@ class CustomCardProductWidget extends StatelessWidget {
                   width: 80,
                   height: 80,
                   decoration: BoxDecoration(
+                    color: Colors.red,
                     image: DecorationImage(
                       image: Image.asset(product.image.first).image,
                       fit: BoxFit.fitWidth,

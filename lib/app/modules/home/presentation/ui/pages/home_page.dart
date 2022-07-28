@@ -18,18 +18,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsConst.background,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 25, bottom: 23, top: 30),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 25, bottom: 23, top: 30),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
               const ListCategoriesHorizontalComponent(),
-              const SizedBox(height: 22),
+              const Spacer(),
               const ListBannersHorizontalComponent(),
-              const SizedBox(height: 24),
-              ListProductHorizontalComponent(
-                listProducts: listProducts,
-              ),
+              const Spacer(),
+              ListProductHorizontalComponent(listProducts: listProducts),
             ],
           ),
         ),
