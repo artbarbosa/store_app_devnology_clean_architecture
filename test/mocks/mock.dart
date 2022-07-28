@@ -2,7 +2,10 @@ import 'package:mocktail/mocktail.dart';
 import 'package:store_app_devnology/app/core/product/domain/entities/product_entity.dart';
 import 'package:store_app_devnology/app/core/product/domain/repositories/product_repository_interface.dart';
 import 'package:store_app_devnology/app/core/product/infra/datasources/product_datasource_interface.dart';
+import 'package:store_app_devnology/app/core/product/infra/model/product_model.dart';
 import 'package:store_app_devnology/app/core/shared/services/remote/http_client_service_interface.dart';
+import 'package:store_app_devnology/app/modules/cart/domain/entities/cart_entity.dart';
+import 'package:store_app_devnology/app/modules/cart/domain/value_objects/item_in_cart.dart';
 
 class IProductRepositoryMock extends Mock implements IProductRepository {}
 
@@ -10,9 +13,49 @@ class HttpServiceMock extends Mock implements IHttpService {}
 
 class IProductDataSourceMock extends Mock implements IProductDataSource {}
 
-final productEntityMcok = ProductEntity(price: 200, title: 'Lenovo', uid: '01');
+final productEntityMock = ProductEntity(price: 200, title: 'Lenovo', uid: '01');
 
-final listProductEntityMock = [productEntityMcok];
+final listProductEntityMock = [productEntityMock];
+
+final productModelMock = ProductModel(
+  price: 200,
+  title: 'Lenovo',
+  uid: '01',
+  description: '',
+  image: [''],
+  shortTitle: '',
+);
+
+final productModelMockSecondary = ProductModel(
+  price: 200,
+  title: 'Lenovo',
+  uid: '02',
+  description: '',
+  image: [''],
+  shortTitle: '',
+);
+
+final itemInCartMock = ItemInCart(
+  countProduct: 1,
+  product: productModelMock,
+);
+
+final listItemInCartMock = [itemInCartMock];
+
+final cartEntityMock = CartEntity(
+  listProduct: listItemInCartMock,
+);
+
+final cartEntityMockSecondary = CartEntity(
+  listProduct: [
+    ItemInCart(
+      countProduct: 0,
+      product: productModelMock,
+    )
+  ],
+);
+
+final listProductModelMock = [productModelMock];
 
 final productMapMock = {
   "uid": "01",
