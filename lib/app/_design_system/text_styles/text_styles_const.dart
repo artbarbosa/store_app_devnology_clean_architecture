@@ -18,13 +18,13 @@ class TextStylesConst {
   );
 
   static final nameProductCard = GoogleFonts.roboto(
-    fontSize: 9,
+    fontSize: 12,
     fontWeight: FontWeight.w300,
     color: Colors.black,
   );
 
   static final priceProductCard = GoogleFonts.roboto(
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: FontWeight.w700,
     color: Colors.black,
   );

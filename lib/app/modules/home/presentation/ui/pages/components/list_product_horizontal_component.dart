@@ -19,7 +19,7 @@ class ListProductHorizontalComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 135,
+            height: currentSize.height * 0.25,
             child: ListView.separated(
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(width: 11),

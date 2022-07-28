@@ -34,7 +34,7 @@ class CartPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: SizedBox(
-            height: currentSize.height - 270,
+            height: currentSize.height - 300,
             child: AnimatedBuilder(
               animation: controller,
               builder: (_, __) {

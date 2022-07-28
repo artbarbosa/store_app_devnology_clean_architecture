@@ -15,6 +15,7 @@ class CustomCardProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
         Navigator.of(context)
@@ -22,40 +23,36 @@ class CustomCardProductWidget extends StatelessWidget {
       },
       child: AspectRatio(
         aspectRatio: 101 / 135,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Center(
-                child: Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    image: DecorationImage(
-                      image: Image.asset(product.image.first).image,
-                      fit: BoxFit.fitWidth,
-                    ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(product.image.first),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(
+                    product.shortTitle,
+                    style: TextStylesConst.nameProductCard,
                   ),
                 ),
-              ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, bottom: 10, right: 8.0),
+                  child: Text(
+                    '\$ ${FormatDoubleDecimalWithCents.call(product.price, ',', '.')}',
+                    style: TextStylesConst.priceProductCard,
+                  ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                product.shortTitle,
-                style: TextStylesConst.nameProductCard,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0, bottom: 10, right: 8.0),
-              child: Text(
-                '\$ ${FormatDoubleDecimalWithCents.call(product.price, ',', '.')}',
-                style: TextStylesConst.priceProductCard,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
