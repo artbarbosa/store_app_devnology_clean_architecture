@@ -16,32 +16,35 @@ class ListCategoriesHorizontalComponent extends StatelessWidget {
           style: TextStylesConst.titleHome,
         ),
         const SizedBox(height: 12),
-        Row(
-          children: [
-            CustomCardCategoryWidget(
-              icon: 'assets/categories/apparel_icon.png',
-              onTap: () {},
-              text: 'Apparel',
-            ),
-            const SizedBox(width: 22),
-            CustomCardCategoryWidget(
-              icon: 'assets/categories/beauty_icon.png',
-              onTap: () {},
-              text: 'Beauty',
-            ),
-            const SizedBox(width: 22),
-            CustomCardCategoryWidget(
-              icon: 'assets/categories/shoes_icon.png',
-              onTap: () {},
-              text: 'Shoes',
-            ),
-            const SizedBox(width: 22),
-            CustomCardCategoryWidget(
-              icon: 'assets/categories/see_all_icon.png',
-              onTap: () {},
-              text: 'See All',
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.only(right: 25),
+          child: Row(
+            children: [
+              CustomCardCategoryWidget(
+                icon: 'assets/categories/apparel_icon.png',
+                onTap: () {},
+                text: 'Apparel',
+              ),
+              const Spacer(),
+              CustomCardCategoryWidget(
+                icon: 'assets/categories/beauty_icon.png',
+                onTap: () {},
+                text: 'Beauty',
+              ),
+              const Spacer(),
+              CustomCardCategoryWidget(
+                icon: 'assets/categories/shoes_icon.png',
+                onTap: () {},
+                text: 'Shoes',
+              ),
+              const Spacer(),
+              CustomCardCategoryWidget(
+                icon: 'assets/categories/see_all_icon.png',
+                onTap: () {},
+                text: 'See All',
+              ),
+            ],
+          ),
         ),
       ],
     );

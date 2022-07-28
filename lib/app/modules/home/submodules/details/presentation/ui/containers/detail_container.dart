@@ -86,8 +86,19 @@ class _DetailContainerState extends State<DetailContainer> {
                 ),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: indicators(widget.arguments.product.image.length,
-                        controller.activeImage))
+                    children: List.generate(
+                        widget.arguments.product.image.length, (index) {
+                      return Container(
+                        margin: const EdgeInsets.all(3),
+                        width: 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                            color: controller.activeImage == index
+                                ? ColorsConst.primary
+                                : const Color(0xFFC4C4C4),
+                            shape: BoxShape.circle),
+                      );
+                    }))
               ],
             ),
             Text(
