@@ -2,7 +2,7 @@ import '../../../shared/failures/failures.dart';
 import '../../domain/entities/product_entity.dart';
 import '../../domain/errors/product_errors.dart';
 import '../../domain/repositories/product_repository_interface.dart';
-import '../adapters/jsont_to_product.dart';
+import '../adapters/json_to_product.dart';
 import '../datasources/product_datasource_interface.dart';
 
 class ProductRepository implements IProductRepository {
